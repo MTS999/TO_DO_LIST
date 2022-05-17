@@ -53,11 +53,8 @@ int main()
             }
         }
         system("cls"); // for linux  system("clear");
-        if (command == 0)
-        {
-            print_list();
-        }
     }
+       print_list();
 }
 void print_list()
 {
