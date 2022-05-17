@@ -2,11 +2,12 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <stdlib.h>
 
 using namespace std;
-vector<string> TaskList;
-void print_list();
-void print_command();
+vector<string> TaskList; // create a vector
+void print_list();       // for  printing vector
+void print_command();    // commands for user
 
 int main()
 {
@@ -26,25 +27,25 @@ int main()
             if (command == 1)
             {
                 cout << "Enter the task =";
-                getline(cin >> ws, task);
-                TaskList.push_back(task);
+                getline(cin >> ws, task); // it takes string with spaces
+                TaskList.push_back(task); //        push task in vector
                 break;
             }
 
             else if (command == 2 && TaskList.size() == 0)
             {
-                cout << "Cannot remove because TaskList is empty " << endl;
+                cout << "Cannot remove task because TaskList is empty " << endl;
                 continue;
             }
             else if (command == 2)
             {
-                TaskList.erase(TaskList.begin());
+                TaskList.erase(TaskList.begin()); // remove the first task
                 break;
             }
 
             else if (command == 0)
             {
-                break;
+                break; // exit the program
             }
             else
             {
@@ -53,8 +54,11 @@ int main()
             }
         }
         system("cls"); // for linux  system("clear");
+        if (command == 0)
+        {
+            print_list();
+        }
     }
-       print_list();
 }
 void print_list()
 {
