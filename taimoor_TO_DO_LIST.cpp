@@ -12,9 +12,9 @@ void print_command();    // commands for user
 int main()
 {
     string task;
-    int command;
+    string command;
 
-    while (command != 0)
+    while (command != "0")
     {
         print_list();
 
@@ -22,9 +22,9 @@ int main()
         {
             print_command();
             cout << "enter your command =";
-            cin >> command;
+            getline(cin >> ws, command);
 
-            if (command == 1)
+            if (command == "1")
             {
                 cout << "Enter the task =";
                 getline(cin >> ws, task); // it takes string with spaces
@@ -32,18 +32,18 @@ int main()
                 break;
             }
 
-            else if (command == 2 && TaskList.size() == 0)
+            else if (command == "2" && TaskList.size() == 0)
             {
                 cout << "Cannot remove task because TaskList is empty " << endl;
                 continue;
             }
-            else if (command == 2)
+            else if (command == "2")
             {
                 TaskList.erase(TaskList.begin()); // remove the first task
                 break;
             }
 
-            else if (command == 0)
+            else if (command == "0")
             {
                 break; // exit the program
             }
@@ -53,13 +53,11 @@ int main()
                 continue;
             }
         }
-        system("cls"); // for linux  system("clear");
-        if (command == 0)
-        {
-            print_list();
-        }
+        system("cls"); //   for linux   system("cls");
     }
+    print_list();
 }
+
 void print_list()
 {
     cout << "                     ------------------------------------" << endl;
